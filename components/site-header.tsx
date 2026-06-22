@@ -44,11 +44,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button asChild className="hidden rounded-lg sm:inline-flex">
-            <a href="#contact">
-              Download Resume
-              <Download className="h-4 w-4" aria-hidden="true" />
-            </a>
+          <Button
+            render={<a href="#contact" />}
+            nativeButton={false}
+            className="hidden h-11 gap-2 rounded-lg px-5 sm:inline-flex"
+          >
+            Download Resume
+            <Download className="h-4 w-4" aria-hidden="true" />
           </Button>
           <button
             type="button"
@@ -75,11 +77,12 @@ export function SiteHeader() {
                 {link.label}
               </a>
             ))}
-            <Button asChild className="mt-2 w-full rounded-lg">
-              <a href="#contact" onClick={() => setOpen(false)}>
-                Download Resume
-                <Download className="h-4 w-4" aria-hidden="true" />
-              </a>
+            <Button
+              render={<a href="#contact" onClick={() => setOpen(false)} />}
+              className="mt-2 h-11 w-full justify-center gap-2 rounded-lg"
+            >
+              Download Resume
+              <Download className="h-4 w-4" aria-hidden="true" />
             </Button>
           </nav>
         </div>

@@ -3,6 +3,7 @@ import { Capabilities } from "@/components/capabilities"
 import { Credentials } from "@/components/credentials"
 import { CtaFooter } from "@/components/cta-footer"
 import { HeroSection } from "@/components/hero-section"
+import { Reveal } from "@/components/reveal"
 import { SelectedWork } from "@/components/selected-work"
 import { SiteHeader } from "@/components/site-header"
 import { StatsBar } from "@/components/stats-bar"
@@ -14,13 +15,27 @@ export default function Page() {
       <SiteHeader />
       <main>
         <HeroSection />
-        <StatsBar />
-        <SelectedWork />
-        <AboutExperience />
-        <Capabilities />
-        <TrustedBrands />
-        <Credentials />
-        <CtaFooter />
+        <Reveal>
+          <StatsBar />
+        </Reveal>
+        <Reveal>
+          <SelectedWork />
+        </Reveal>
+        <Reveal>
+          <AboutExperience />
+        </Reveal>
+        <Reveal>
+          <Capabilities />
+        </Reveal>
+        <Reveal>
+          <TrustedBrands />
+        </Reveal>
+        <Reveal>
+          <Credentials />
+        </Reveal>
+        <Reveal>
+          <CtaFooter />
+        </Reveal>
       </main>
     </div>
   )

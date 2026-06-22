@@ -50,17 +50,24 @@ export function HeroSection() {
           </ul>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" className="rounded-lg">
-              <a href="#projects">
-                View My Work
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </a>
+            <Button
+              render={<a href="#projects" />}
+              nativeButton={false}
+              size="lg"
+              className="h-12 w-full justify-center gap-2 rounded-lg px-6 sm:w-52"
+            >
+              View My Work
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-lg bg-background">
-              <a href="#contact">
-                Get In Touch
-                <Send className="h-4 w-4" aria-hidden="true" />
-              </a>
+            <Button
+              render={<a href="#contact" />}
+              nativeButton={false}
+              size="lg"
+              variant="outline"
+              className="h-12 w-full justify-center gap-2 rounded-lg bg-background px-6 sm:w-52"
+            >
+              Get In Touch
+              <Send className="h-4 w-4" aria-hidden="true" />
             </Button>
           </div>
         </div>
@@ -73,7 +80,7 @@ export function HeroSection() {
               aria-hidden="true"
             />
             <span
-              className="absolute -left-3 top-1/3 hidden h-16 w-16 items-center justify-center rounded-2xl bg-background shadow-lg shadow-primary/10 sm:flex lg:-left-6"
+              className="absolute -left-3 top-1/3 z-20 hidden h-16 w-16 animate-float-soft items-center justify-center rounded-2xl bg-background shadow-lg shadow-primary/10 sm:flex lg:-left-6"
               aria-hidden="true"
             >
               <Sparkles className="h-6 w-6 text-primary" />
@@ -89,11 +96,12 @@ export function HeroSection() {
           </div>
 
           {/* Floating stat cards */}
-          <div className="mt-6 grid grid-cols-3 gap-3 sm:absolute sm:right-0 sm:top-1/2 sm:mt-0 sm:w-44 sm:-translate-y-1/2 sm:grid-cols-1 lg:-right-4">
-            {heroStats.map((s) => (
+          <div className="relative z-30 mt-6 grid grid-cols-3 gap-3 sm:absolute sm:right-0 sm:top-1/2 sm:mt-0 sm:w-44 sm:-translate-y-1/2 sm:grid-cols-1 lg:-right-4">
+            {heroStats.map((s, i) => (
               <div
                 key={s.label}
-                className="rounded-xl border border-border bg-background p-3 text-center shadow-sm sm:text-left"
+                style={{ animationDelay: `${i * 0.6}s` }}
+                className="rounded-xl border border-border bg-background p-3 text-center shadow-lg shadow-primary/5 sm:animate-float-soft sm:text-left"
               >
                 <p className="text-xl font-extrabold text-primary sm:text-2xl">{s.value}</p>
                 <p className="text-xs leading-tight text-muted-foreground">{s.label}</p>
